@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkpb1xd0sd84a"]
+[gd_scene load_steps=6 format=3 uid="uid://dkpb1xd0sd84a"]
 
 [ext_resource type="MeshLibrary" uid="uid://gv3v8bqv1qhd" path="res://MeshLibraries/SpaceLibrary.tres" id="1_8dosd"]
 
@@ -15,6 +15,9 @@ sky = SubResource("Sky_0yj6s")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa15f"]
+albedo_color = Color(0.266667, 0.266667, 0.266667, 1)
+
 [node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -26,6 +29,7 @@ shadow_enabled = true
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_xa15f")
 size = Vector3(100, 2, 100)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -34,6 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_8dosd")
 cell_size = Vector3(4, 4, 4)
+cell_center_y = false
 data = {
-"cells": PackedInt32Array(65535, 65534, 1)
+"cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 65532, 65534, 0, 65532, 2, 0, 65533, 65534, 0, 65533, 2, 0, 65534, 65534, 0, 65534, 2, 0, 0, 65534, 0, 0, 2, 0, 1, 65534, 0, 1, 2, 0, 2, 2, 0, 3, 65534, 0, 3, 2, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 65535, 1, 0, 65535, 0, 0, 1, 65535, 0, 0, 1, 0, 2, 0, 0, 2, 65534, 0, 2, 65535, 0, 65533, 0, 0, 65533, 65535, 0)
 }
