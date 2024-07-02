@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkpb1xd0sd84a"]
+[gd_scene load_steps=8 format=3 uid="uid://dkpb1xd0sd84a"]
 
 [ext_resource type="MeshLibrary" uid="uid://gv3v8bqv1qhd" path="res://MeshLibraries/SpaceLibrary.tres" id="1_8dosd"]
+[ext_resource type="PackedScene" uid="uid://de3la8m6nynxi" path="res://Prefabs/Enemies/enemy.tscn" id="2_6xxry"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7erqo"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,7 +21,7 @@ albedo_color = Color(0.266667, 0.266667, 0.266667, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_38sak"]
 _data = {
-"points": PackedVector3Array(-1, 0, -2, 1, 0, 2, -18, 0, -10, -1.58463, 0, -1.43394, 1.58463, 0, 1.43394, -18, 0, -2, -1.53288, 0, -1.42144, 1.53288, 0, 1.42144, -14, 0, -2, -1.60616, 0, -1.056, 1.60616, 0, 1.056, -14, 0, 6, -1.61451, 0, 1.124, 1.61451, 0, -1.124, -6, 0, 6, -1.56919, 0, 0.912363, 1.56919, 0, -0.912363, -6, 0, -2, -1.06821, 0, -1.28153, 1.06821, 0, 1.28153, 2, 0, -2, -1.15451, 0, -1.08314, 1.15451, 0, 1.08314, 2, 0, 2, -1.32997, 0, -1.15127, 1.32997, 0, 1.15127, 6, 0, 2, -0.912832, 0, -1.32047, 0.912832, 0, 1.32047, 6, 0, 6, -1.74794, 0, 1.03868, 1.74794, 0, -1.03868, 14, 0, 6, -1.2161, 0, 1.55835, 1.2161, 0, -1.55835, 14, 0, -2, -1, 0, 0, 1, 0, 0, 22, 0, -2),
+"points": PackedVector3Array(-1, 0, -2, 1, 0, 2, -18, 0, -10, -1.58463, 0, -1.43394, 1.58463, 0, 1.43394, -18, 0, -2, -1.53288, 0, -1.42144, 1.53288, 0, 1.42144, -14, 0, -2, -1.60616, 0, -1.056, 1.60616, 0, 1.056, -14, 0, 6, -1.61451, 0, 1.124, 1.61451, 0, -1.124, -6, 0, 6, -1.56919, 0, 0.912363, 1.56919, 0, -0.912363, -6, 0, -2, -1.06821, 0, -1.28153, 1.06821, 0, 1.28153, 2, 0, -2, -1.40191, 0, -1.25684, 1.40191, 0, 1.25684, 2, 0, 2, -1.23325, 0, -1.40677, 1.23325, 0, 1.40677, 6, 0, 2, -1.44147, 0, -1.15481, 1.44147, 0, 1.15481, 6, 0, 6, -1.74794, 0, 1.03868, 1.74794, 0, -1.03868, 14, 0, 6, -1.2161, 0, 1.55835, 1.2161, 0, -1.55835, 14, 0, -2, -1, 0, 0, 1, 0, 0, 22, 0, -2),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 13
@@ -31,7 +32,7 @@ point_count = 13
 environment = SubResource("Environment_8mf1h")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.862365, 0.501931, 0.0662792, 0.425845, 0.648299, 0.631162, 0.273831, 0.572516, -0.772814, 0, 9.73498, 0)
 shadow_enabled = true
 
 [node name="Ground" type="CSGBox3D" parent="."]
@@ -91,3 +92,6 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
+
+[node name="Enemy" parent="Path3D" instance=ExtResource("2_6xxry")]
+transform = Transform3D(-0.894384, 0, -0.447192, 0, 1, 0, 0.447192, 0, -0.894384, -18, 0, -10)
