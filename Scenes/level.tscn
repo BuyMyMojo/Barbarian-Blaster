@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkpb1xd0sd84a"]
+[gd_scene load_steps=7 format=3 uid="uid://dkpb1xd0sd84a"]
 
 [ext_resource type="MeshLibrary" uid="uid://gv3v8bqv1qhd" path="res://MeshLibraries/SpaceLibrary.tres" id="1_8dosd"]
 
@@ -17,6 +17,13 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa15f"]
 albedo_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_38sak"]
+_data = {
+"points": PackedVector3Array(-1, 0, -2, 1, 0, 2, -18, 0, -10, -1.58463, 0, -1.43394, 1.58463, 0, 1.43394, -18, 0, -2, -1.53288, 0, -1.42144, 1.53288, 0, 1.42144, -14, 0, -2, -1.60616, 0, -1.056, 1.60616, 0, 1.056, -14, 0, 6, -1.61451, 0, 1.124, 1.61451, 0, -1.124, -6, 0, 6, -1.56919, 0, 0.912363, 1.56919, 0, -0.912363, -6, 0, -2, -1.06821, 0, -1.28153, 1.06821, 0, 1.28153, 2, 0, -2, -1.15451, 0, -1.08314, 1.15451, 0, 1.08314, 2, 0, 2, -1.32997, 0, -1.15127, 1.32997, 0, 1.15127, 6, 0, 2, -0.912832, 0, -1.32047, 0.912832, 0, 1.32047, 6, 0, 6, -1.74794, 0, 1.03868, 1.74794, 0, -1.03868, 14, 0, 6, -1.2161, 0, 1.55835, 1.2161, 0, -1.55835, 14, 0, -2, -1, 0, 0, 1, 0, 0, 22, 0, -2),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
 
 [node name="Level" type="Node3D"]
 
@@ -42,3 +49,45 @@ cell_center_y = false
 data = {
 "cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 65532, 65534, 0, 65532, 2, 0, 65533, 65534, 0, 65533, 2, 0, 65534, 65534, 0, 65534, 2, 0, 0, 65534, 0, 0, 2, 0, 1, 65534, 0, 1, 2, 0, 2, 2, 0, 3, 65534, 0, 3, 2, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 65535, 1, 0, 65535, 0, 0, 1, 65535, 0, 0, 1, 0, 2, 0, 0, 2, 65534, 0, 2, 65535, 0, 65533, 0, 0, 65533, 65535, 0)
 }
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_38sak")
+
+[node name="Road" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.2
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="LeftEdge" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(-1.1, 0, -1.1, 0.2, -1, 0.2, -1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.2
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="RightEdge" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(1.1, 0, 1.1, 0.2, 1, 0.2, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.2
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
