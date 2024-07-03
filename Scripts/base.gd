@@ -9,7 +9,14 @@ extends Node3D
 var health: int:
 	set(health_in):
 		health = health_in
-		label_3d.text = str(health)
+		label_3d.text = "%s/%s" % [health, max_health]
+		
+		var healthy_colour: Color = Color.WHITE
+		var danger_colour: Color = Color.RED
+		
+		var health_ratio: float = health as float/max_health as float
+		
+		label_3d.modulate = danger_colour.lerp(healthy_colour, health_ratio)
 		
 		if health < 1:
 			get_tree().reload_current_scene()
