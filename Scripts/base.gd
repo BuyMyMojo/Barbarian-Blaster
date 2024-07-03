@@ -6,16 +6,18 @@ extends Node3D
 
 @onready var label_3d: Label3D = $Label3D
 
-var health: int
+var health: int:
+	set(health_in):
+		health = health_in
+		label_3d.text = str(health)
+		
+		if health < 1:
+			get_tree().reload_current_scene()
+	get:
+		return health
 
 func _ready() -> void:
-	label_3d.text = str(max_health)
 	health = max_health
 
 func take_damage() -> void:
-	Log.log("Base damaged")
 	health -= 1
-	update_health()
-
-func update_health() -> void:
-	label_3d.text = str(health)
