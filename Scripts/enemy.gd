@@ -8,7 +8,8 @@ extends PathFollow3D
 func _process(delta: float) -> void:
 	progress += speed * delta
 	
-	if progress_ratio >= 1:
+	if progress_ratio >= 1.0:
 		base.take_damage()
-		queue_free()
+		#queue_free()
+		set_process(false)
 
