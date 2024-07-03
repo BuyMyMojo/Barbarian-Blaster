@@ -8,5 +8,4 @@ func _process(delta: float) -> void:
 	ray_cast_3d.target_position = project_local_ray_normal(mouse_position) * 100
 	ray_cast_3d.force_raycast_update()
 	
-	if Engine.get_frames_drawn() % 4:
-		Log.log(ray_cast_3d.get_collider(), ray_cast_3d.get_collision_point())
+	DebugDraw3D.draw_sphere(ray_cast_3d.get_collision_point(), 0.25, Color.RED)
