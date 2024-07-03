@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cheimhgs0k3xc"]
+
+[ext_resource type="Script" path="res://Scripts/player_camera.gd" id="1_sb7jv"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_nwb4c"]
+
+[node name="PlayerCamera" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 14.5, 9.5)
+attributes = SubResource("CameraAttributesPractical_nwb4c")
+fov = 86.9
+size = 24.865
+script = ExtResource("1_sb7jv")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 8.9407e-08, 0, -8.9407e-08, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -2)

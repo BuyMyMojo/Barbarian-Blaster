@@ -1,6 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dkpb1xd0sd84a"]
 
 [ext_resource type="MeshLibrary" uid="uid://gv3v8bqv1qhd" path="res://MeshLibraries/SpaceLibrary.tres" id="1_8dosd"]
+[ext_resource type="PackedScene" uid="uid://cheimhgs0k3xc" path="res://Prefabs/player_camera.tscn" id="1_lut1u"]
 [ext_resource type="PackedScene" uid="uid://de3la8m6nynxi" path="res://Prefabs/Enemies/enemy.tscn" id="2_6xxry"]
 [ext_resource type="PackedScene" uid="uid://yvv8hses5jup" path="res://Prefabs/base.tscn" id="3_rtsi3"]
 
@@ -19,8 +20,6 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa15f"]
 albedo_color = Color(0.266667, 0.266667, 0.266667, 1)
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_nwb4c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbmx8"]
 albedo_color = Color(0.8, 0.8, 0.8, 1)
@@ -61,11 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 material_override = SubResource("StandardMaterial3D_xa15f")
 size = Vector3(100, 2, 100)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 14.5, 9.5)
-attributes = SubResource("CameraAttributesPractical_nwb4c")
-fov = 86.9
-size = 24.865
+[node name="PlayerCamera" parent="." instance=ExtResource("1_lut1u")]
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_8dosd")
