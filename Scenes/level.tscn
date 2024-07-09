@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkpb1xd0sd84a"]
+[gd_scene load_steps=14 format=3 uid="uid://dkpb1xd0sd84a"]
 
 [ext_resource type="MeshLibrary" uid="uid://gv3v8bqv1qhd" path="res://MeshLibraries/SpaceLibrary.tres" id="1_8dosd"]
 [ext_resource type="PackedScene" uid="uid://cheimhgs0k3xc" path="res://Prefabs/player_camera.tscn" id="1_lut1u"]
 [ext_resource type="PackedScene" uid="uid://de3la8m6nynxi" path="res://Prefabs/Enemies/enemy.tscn" id="2_6xxry"]
 [ext_resource type="PackedScene" uid="uid://yvv8hses5jup" path="res://Prefabs/base.tscn" id="3_rtsi3"]
+[ext_resource type="Script" path="res://Scripts/TurretManager.gd" id="5_7li7t"]
+[ext_resource type="PackedScene" uid="uid://0p5p5s0jx65" path="res://Prefabs/turret.tscn" id="6_rt6xu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7erqo"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -139,3 +141,7 @@ progress = 20.0
 speed = 7.0
 
 [node name="Base" parent="." instance=ExtResource("3_rtsi3")]
+
+[node name="TurretManager" type="Node3D" parent="."]
+script = ExtResource("5_7li7t")
+turret_scene = ExtResource("6_rt6xu")

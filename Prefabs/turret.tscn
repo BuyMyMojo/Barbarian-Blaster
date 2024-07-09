@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://0p5p5s0jx65"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x2e8p"]
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v11gc"]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_40a2a"]
+size = Vector3(0.25, 1, 0.4)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0ekr4"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.4
+
+[sub_resource type="PrismMesh" id="PrismMesh_gp7i8"]
+size = Vector3(0.55, 0.73, 1.75)
+
+[sub_resource type="TorusMesh" id="TorusMesh_i60o3"]
+inner_radius = 0.09
+outer_radius = 0.18
+ring_segments = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lu3j8"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_21364"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.025
+
+[node name="Turret" type="Node3D"]
+
+[node name="TurretBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_x2e8p")
+
+[node name="TurretTop" type="MeshInstance3D" parent="TurretBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("CylinderMesh_v11gc")
+
+[node name="LauncherHolder" type="MeshInstance3D" parent="TurretBase/TurretTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("BoxMesh_40a2a")
+
+[node name="Axel" type="MeshInstance3D" parent="TurretBase/TurretTop/LauncherHolder"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.140854, 0)
+mesh = SubResource("CylinderMesh_0ekr4")
+
+[node name="Launcher1" type="MeshInstance3D" parent="TurretBase/TurretTop/LauncherHolder/Axel"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.00914574, -0.55, 0.2)
+mesh = SubResource("PrismMesh_gp7i8")
+skeleton = NodePath("../..")
+
+[node name="Barrel" type="MeshInstance3D" parent="TurretBase/TurretTop/LauncherHolder/Axel/Launcher1"]
+transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, -0.199143, 0.914181)
+mesh = SubResource("TorusMesh_i60o3")
+
+[node name="Hole" type="MeshInstance3D" parent="TurretBase/TurretTop/LauncherHolder/Axel/Launcher1/Barrel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0116367, 0)
+material_override = SubResource("StandardMaterial3D_lu3j8")
+mesh = SubResource("CylinderMesh_21364")
+
+[node name="Launcher2" type="MeshInstance3D" parent="TurretBase/TurretTop/LauncherHolder/Axel"]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 1.37337e-15, 0, 1, -0.00899994, 0.55, 0.2)
+mesh = SubResource("PrismMesh_gp7i8")
+skeleton = NodePath("../..")
+
+[node name="Barrel" type="MeshInstance3D" parent="TurretBase/TurretTop/LauncherHolder/Axel/Launcher2"]
+transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, -0.199143, 0.914181)
+mesh = SubResource("TorusMesh_i60o3")
+
+[node name="Hole" type="MeshInstance3D" parent="TurretBase/TurretTop/LauncherHolder/Axel/Launcher2/Barrel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0116367, 0)
+material_override = SubResource("StandardMaterial3D_lu3j8")
+mesh = SubResource("CylinderMesh_21364")
