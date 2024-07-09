@@ -13,8 +13,9 @@ config_version=5
 config/name="Barbarian Blaster"
 run/main_scene="res://Scenes/level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/show_image=false
+boot_splash/image="res://HumanMadeMark/white-logo-square.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=3072
 
 [display]
 
