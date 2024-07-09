@@ -5,11 +5,11 @@ extends PathFollow3D
 
 @onready var base: PlayerBase = get_tree().get_first_node_in_group("Base")
 
+
 func _process(delta: float) -> void:
 	progress += speed * delta
-	
+
 	if progress_ratio >= 1.0:
 		base.take_damage()
 		#queue_free()
 		set_process(false)
-
