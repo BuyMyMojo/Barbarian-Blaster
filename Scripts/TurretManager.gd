@@ -1,13 +1,10 @@
+class_name TurretManager
+
 extends Node3D
 
 @export var turret_scene: PackedScene
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func build_turret(spawn_location: Vector3) -> void:
+	var new_turret := turret_scene.instantiate()
+	new_turret.global_position = spawn_location
+	add_child(new_turret)
