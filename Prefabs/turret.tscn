@@ -83,3 +83,11 @@ mesh = SubResource("TorusMesh_i60o3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0116367, 0)
 material_override = SubResource("StandardMaterial3D_lu3j8")
 mesh = SubResource("CylinderMesh_21364")
+
+[node name="FirePoint" type="Marker3D" parent="TurretBase/TurretTop/LauncherHolder/Axel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.06679)
+
+[node name="FireTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

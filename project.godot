@@ -48,4 +48,5 @@ left_click={
 
 [rendering]
 
+scaling_3d/mode=2
 lightmapping/denoising/denoiser=1

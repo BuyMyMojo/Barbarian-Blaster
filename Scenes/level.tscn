@@ -167,6 +167,7 @@ speed = 7.0
 
 [node name="Base" parent="." instance=ExtResource("3_rtsi3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 8.56817e-08, -2)
+max_health = 6
 
 [node name="ShakerComponent3D" type="Node3D" parent="Base"]
 script = ExtResource("5_6xufg")
