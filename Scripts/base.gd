@@ -6,6 +6,8 @@ extends Node3D
 
 @onready var label_3d: Label3D = $Label3D
 
+@onready var shaker: ShakerComponent3D = $ShakerComponent3D
+
 var health: int:
 	set(health_in):
 		health = health_in
@@ -19,6 +21,7 @@ var health: int:
 		label_3d.modulate = danger_colour.lerp(healthy_colour, health_ratio)
 
 		if health < 1:
+			await get_tree().create_timer(1).timeout
 			get_tree().reload_current_scene()
 	get:
 		return health
@@ -30,3 +33,4 @@ func _ready() -> void:
 
 func take_damage() -> void:
 	health -= 1
+	shaker.play_shake()
