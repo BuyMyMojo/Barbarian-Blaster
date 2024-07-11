@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://0p5p5s0jx65"]
+[gd_scene load_steps=12 format=3 uid="uid://0p5p5s0jx65"]
 
 [ext_resource type="Script" path="res://Scripts/turret.gd" id="1_d5ws7"]
 [ext_resource type="PackedScene" uid="uid://ddbdu2se787em" path="res://Prefabs/projectile.tscn" id="2_abvlm"]
+[ext_resource type="Script" path="res://Scripts/TurretRangePreview.gd" id="3_4rnot"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_x2e8p"]
 height = 1.0
@@ -38,6 +39,7 @@ height = 0.025
 
 [node name="Turret" type="Node3D"]
 script = ExtResource("1_d5ws7")
+range = 7.0
 projectile = ExtResource("2_abvlm")
 
 [node name="TurretBase" type="MeshInstance3D" parent="."]
@@ -89,5 +91,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.06679)
 
 [node name="FireTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="RangePreview" type="Node3D" parent="." node_paths=PackedStringArray("turret")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74076, 0)
+visible = false
+script = ExtResource("3_4rnot")
+turret = NodePath("..")
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
