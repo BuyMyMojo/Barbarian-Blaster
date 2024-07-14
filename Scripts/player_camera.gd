@@ -7,7 +7,12 @@ extends Camera3D
 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
+var pointer := preload("res://Assets/KennyCursorPack/PNG/Outline/Double/gauntlet_point.png")
+
 enum grid_cell_type { EMPTY = 0, TURRET = 1 }
+
+func _ready() -> void:
+	Input.set_custom_mouse_cursor(pointer, Input.CURSOR_POINTING_HAND)
 
 
 func _process(_delta: float) -> void:

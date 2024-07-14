@@ -28,6 +28,7 @@ DebugControls="*res://Scripts/debug_controls.gd"
 window/size/viewport_width=2560
 window/size/viewport_height=1440
 window/subwindows/embed_subwindows=false
+mouse_cursor/custom_image="res://Assets/KennyCursorPack/PNG/Outline/Double/cursor_none.png"
 
 [editor]
 
