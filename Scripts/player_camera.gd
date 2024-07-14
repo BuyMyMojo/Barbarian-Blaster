@@ -26,12 +26,12 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("left_click"):
 				var collision_point: Vector3 = ray_cast_3d.get_collision_point()
 				var cell := level_grid_map.local_to_map(collision_point)
-				
+
 				if level_grid_map.get_cell_item(cell) == grid_cell_type.EMPTY:
 					level_grid_map.set_cell_item(cell, grid_cell_type.TURRET)
-					
+
 					var tile_position := level_grid_map.map_to_local(cell)
-					
+
 					turret_manager.build_turret(tile_position)
 	elif Input.get_current_cursor_shape() != Input.CURSOR_ARROW:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)

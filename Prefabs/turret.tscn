@@ -39,7 +39,6 @@ height = 0.025
 
 [node name="Turret" type="Node3D"]
 script = ExtResource("1_d5ws7")
-range = 7.0
 projectile = ExtResource("2_abvlm")
 
 [node name="TurretBase" type="MeshInstance3D" parent="."]

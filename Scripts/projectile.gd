@@ -4,9 +4,20 @@ var direction := Vector3.FORWARD
 
 @export var speed: float = 30.0
 
+
 func _physics_process(delta: float) -> void:
 	position += direction * (speed * delta)
 
 
 func _on_despawn_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_area_entered(area: Area3D) -> void:
+	if area.is_in_group("enemy_area"):
+		
+		var enemy: BaseEnemy = area.get_parent()
+		
+		enemy.current_health -= 25
+		
+		queue_free()

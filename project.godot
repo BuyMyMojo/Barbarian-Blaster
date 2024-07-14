@@ -14,7 +14,6 @@ config/name="Barbarian Blaster"
 run/main_scene="res://Scenes/level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.0701524, 0.0701524, 0.0701524, 1)
-boot_splash/show_image=false
 boot_splash/image="res://HumanMadeMark/white-logo-square.png"
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
@@ -22,6 +21,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Shaker="*res://addons/shaker/src/Shaker.gd"
+DebugControls="*res://Scripts/debug_controls.gd"
 
 [display]
 
